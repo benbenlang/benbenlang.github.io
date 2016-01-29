@@ -1,6 +1,10 @@
 title: hexo安装步骤及模板插件安装
 date: 2016-01-27 19:03:48
-tags: hexo安装步骤,hexo模板安装,hexo插件安装,hexo
+tags: 
+- hexo安装步骤
+- hexo模板安装
+- hexo插件安装
+- hexo
 ---
 作为一个技术小白我竟然可以用 **Markdown** 写博客了！当然Hexo的安装就废掉我不少力气，还有怎么发布到GitHub上也很难为我，虽然花了有近一周时间才搞定这点东西，但还是值得的！（还能怎么说？）博客的安装发布耗费了不少力气，第一篇博客赶紧把过程记录下来，免得以后老眼昏花又搞不来了，，，主要是那些代码我背不住。奶奶个胸，写这点东西的时候脑子里尽然想到一个可恶的人。。。 
 
@@ -104,6 +108,7 @@ npm安装不成功可以
 git add .
 git commit -m “…”
 git push origin hexo 向hexo分支提交网站相关的文件；
+然后将分支branch值改为master
 - 执行hexo g -d生成网站并部署到GitHub上。
 这样一来，在GitHub上的benbenlang.github.io仓库就有两个分支，一个hexo分支用来存放网站的原始文件，一个master分支用来存放生成的静态网页。
 
@@ -137,12 +142,14 @@ cd到自己本地仓库的benbenlang.github.io文件夹
 
 
 
-每次改完东西都要输
-> npm install hexo-deployer-git --save
-> git pull origin master
-> hexo g #生成静态页
-> hexo s #本地预览测试
-> hexo g -d #发布
+每次改完东西都要先把分支改成hexo输
+> git add .
+git commit -m “…”
+git push origin hexo 向hexo分支提交网站相关的文件；
+然后将分支branch值改为master
+- 执行hexo g -d生成网站并部署到GitHub上。
+
+
 
 > { [Error: Cannot find module './build/Release/DTraceProviderBindings'] code: 'MODULE_NOT_FOUND' }
 { [Error: Cannot find module './build/default/DTraceProviderBindings'] code: 'MODULE_NOT_FOUND' }
