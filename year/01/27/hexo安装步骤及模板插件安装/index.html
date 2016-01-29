@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>hexo安装步骤及模板插件安装 | 笨笨郎在这里</title><link rel="stylesheet" type="text/css" href="/css/normalize.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="/css/pure-min.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="/css/grids-responsive-min.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">hexo安装步骤及模板插件安装</h1><a id="logo" href="/.">笨笨郎在这里</a><p class="description">如果我能回到小时候，我愿意放弃现在！</p></div><div id="nav-menu"><a href="/." class="current"><i class="icon-home"> 首頁</i></a><a href="/archives/"><i class="icon-archive"> 所有文章</i></a><a href="/about/"><i class="icon-about"> 關於</i></a><a href="/atom.xml"><i class="icon-rss"> 訂閱</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post post-page"><h1 class="post-title">hexo安装步骤及模板插件安装</h1><div class="post-meta">2016-01-27</div><span data-disqus-identifier="year/01/27/hexo安装步骤及模板插件安装/" class="disqus-comment-count"></span><div class="post-content"><p>作为一个技术小白我竟然可以用 <strong>Markdown</strong> 写博客了！当然Hexo的安装就废掉我不少力气，还有怎么发布到GitHub上也很难为我，虽然花了有近一周时间才搞定这点东西，但还是值得的！（还能怎么说？）博客的安装发布耗费了不少力气，第一篇博客赶紧把过程记录下来，免得以后老眼昏花又搞不来了，，，主要是那些代码我背不住。奶奶个胸，写这点东西的时候脑子里尽然想到一个可恶的人。。。 </p>
+<h3 id="u7ED9_u81EA_u5DF1_u7684_u53CB_u60C5_u94FE_u63A5_u2013_Cmd_Markdown"><a href="#u7ED9_u81EA_u5DF1_u7684_u53CB_u60C5_u94FE_u63A5_u2013_Cmd_Markdown" class="headerlink" title="给自己的友情链接– Cmd Markdown"></a><a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="external">给自己的友情链接– Cmd Markdown</a></h3><p><strong> 跟着我来 </strong></p>
+<blockquote>
+<ul>
+<li>环境准备</li>
+<li>安装Hexo</li>
+<li>发布Hexo到GitHub</li>
+<li>hexo博客更换主题</li>
+<li>hexo博客绑定个人域名</li>
+</ul>
+</blockquote>
+<h2 id="u73AF_u5883_u51C6_u5907"><a href="#u73AF_u5883_u51C6_u5907" class="headerlink" title="环境准备"></a>环境准备</h2><p>Hexo本身安装很简单，网上教程一大堆，但是我刚开始连环境都安装不成功， 比如要安装GIT、Homebrew、npm、nvm、node.js等，我反反复复的安装了无数次，才算是有了一丢丢经验，先都记在这里!</p>
+<p>思路是：<br>先安装Homebrew<br>使用Homebrew安裝nvm<br>使用nvm安裝Node.js<br>使用nvm无痛切换Node.js版本<br>Node.js自带npm<br>用npm安装hexo<br>hexo安装主题theme，写文章什么的<br>用hexo s -debug预览<br>预览没问题用hexo g生成静态页<br>最后用hexo d发布到git的默认分支master</p>
+<p>在做以上动作之前要先建立本地电脑与自己github的连接，要知道git是个版本管理工具，github是远程仓库。</p>
+<p>以下都是终端（terminal）里输的啊，复制进去回车就行。</p>
+<h3 id="u5347_u7EA7Xcode_2C_u8FD9_u662F_u89E3_u51B3_u4E00_u5927_u5806BUG_u7684_u7EC8_u6781_u5927_u62DB_uFF0C_u5B89_u88C5_u540E_u4F1A_u53D1_u73B0_u518D_u5B89_u88C5_u522B_u7684_u5C31_u4E0D_u4F1A_u8001_u5931_u8D25_u4E86_uFF0C_u4F60_u8981_u53CD_u53CD_u590D_u590D_u7684_u5931_u8D25_u7684_u8BDD_u5148_u627E_u82F9_u679C_u7B97_u8D26_u3002"><a href="#u5347_u7EA7Xcode_2C_u8FD9_u662F_u89E3_u51B3_u4E00_u5927_u5806BUG_u7684_u7EC8_u6781_u5927_u62DB_uFF0C_u5B89_u88C5_u540E_u4F1A_u53D1_u73B0_u518D_u5B89_u88C5_u522B_u7684_u5C31_u4E0D_u4F1A_u8001_u5931_u8D25_u4E86_uFF0C_u4F60_u8981_u53CD_u53CD_u590D_u590D_u7684_u5931_u8D25_u7684_u8BDD_u5148_u627E_u82F9_u679C_u7B97_u8D26_u3002" class="headerlink" title="升级Xcode,这是解决一大堆BUG的终极大招，安装后会发现再安装别的就不会老失败了，你要反反复复的失败的话先找苹果算账。"></a>升级Xcode,这是解决一大堆BUG的终极大招，安装后会发现再安装别的就不会老失败了，你要反反复复的失败的话先找苹果算账。</h3><blockquote>
+<p>xcode-select –install</p>
+</blockquote>
+<h3 id="u5B89_u88C5Homebrew"><a href="#u5B89_u88C5Homebrew" class="headerlink" title="安装Homebrew"></a>安装Homebrew</h3><blockquote>
+<p>ruby -e “$(curl -fsSL <a href="https://raw.github.com/mxcl/homebrew/go)”" target="_blank" rel="external">https://raw.github.com/mxcl/homebrew/go)”</a>  #安装homebrew<br>brew tap phinze/homebrew-cask &amp;&amp; brew install brew-cask  #安装 brew-cask<br>brew update</p>
+</blockquote>
+<p>这一步比较容易成功，基本上都不会出错</p>
+<h4 id="u4F7F_u7528Homebrew_u5B89_u88DDnvm"><a href="#u4F7F_u7528Homebrew_u5B89_u88DDnvm" class="headerlink" title="使用Homebrew安裝nvm"></a>使用Homebrew安裝nvm</h4><blockquote>
+<p>brew install nvm</p>
+</blockquote>
+<p>安裝完后，为了让你可以直接在shell使用nvm指令，必须在你的 .bash_profile 加入以下这行：</p>
+<blockquote>
+<p>source $(brew –prefix nvm)/nvm.sh</p>
+</blockquote>
+<p>或者直接输入以下这行来加入：</p>
+<blockquote>
+<p>echo “source $(brew –prefix nvm)/nvm.sh” &gt;&gt; .bash_profile</p>
+</blockquote>
+<p>记得重新source你的 .bash_profile来让设定生效：</p>
+<blockquote>
+<p> . ~/.bash_profile</p>
+</blockquote>
+<p>这样就完成了nvm的安裝</p>
+<h4 id="u4F7F_u7528nvm_u5B89_u88DDNode-js"><a href="#u4F7F_u7528nvm_u5B89_u88DDNode-js" class="headerlink" title="使用nvm安裝Node.js"></a>使用nvm安裝Node.js</h4><blockquote>
+<p>nvm ls-remote  #先看有哪些版本可以安装<br>nvm use –delete-prefix v0.12.9 –silent  #经常失败可以用这个选个最新版<br>node -v  可以验证有没安装成功</p>
+</blockquote>
+<h2 id="u7528npm_u5B89_u88C5hexo"><a href="#u7528npm_u5B89_u88C5hexo" class="headerlink" title="用npm安装hexo"></a>用npm安装hexo</h2><blockquote>
+<p>npm install hexo-cli -g<br>运行 ‘ hexo s –debug ‘，并访问 ‘ <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> ‘，查看站点是否正确运行</p>
+</blockquote>
+<p>npm安装不成功可以</p>
+<blockquote>
+<p>sudo rm -rf /usr/local/{lib/node{,/.npm,_modules},bin,share/man}/{npm<em>,node</em>,man1/node*}<br>npm install -g npm-autoinit<br>npm config set onload-script npm-autoinit/autoinit<br>npm install</p>
+</blockquote>
+<h2 id="u53D1_u5E03Hexo_u5230GitHub"><a href="#u53D1_u5E03Hexo_u5230GitHub" class="headerlink" title="发布Hexo到GitHub"></a>发布Hexo到GitHub</h2><ul>
+<li>在github创建仓库（Create a new repository），Repository name填：benbenlang.github.io点最下面的绿色按钮</li>
+<li>在benbenlang.github.io创建两个分支：master 与 hexo；</li>
+<li>设置hexo为默认分支（因为我们只需要手动管理这个分支上的Hexo网站文件）；</li>
+<li>使用git clone git@github.com:benbenlang/benbenlang.github.io.git拷贝仓库到自己电脑；</li>
+<li><p>cd到本地benbenlang.github.io文件夹下在终端里依次执行<br>npm install hexo #在本地仓库安装hexo<br>hexo init  #初始化仓库</p>
+<p>此时benbenlang.github.io仓库里的_config.yml文件最下面分支branch值应该是hexo）;<br>比如这样： </p>
+<blockquote>
+<p>deploy:<br>type: git<br>repo: <a href="https://github.com/benbenlang/benbenlang.github.io.git" target="_blank" rel="external">https://github.com/benbenlang/benbenlang.github.io.git</a><br>branch: hexo</p>
+</blockquote>
+<p>npm install  #安装些东西<br>npm install hexo-deployer-git –save（此时本地仓库里的_config.yml文件分支branch应该是hexo）;</p>
+</li>
+<li>然后修改_config.yml中的deploy，分支branch值改为master；</li>
+<li>依次执行<br>git add .<br>git commit -m “…”<br>git push origin hexo 向hexo分支提交网站相关的文件；</li>
+<li>执行hexo g -d生成网站并部署到GitHub上。<br>这样一来，在GitHub上的benbenlang.github.io仓库就有两个分支，一个hexo分支用来存放网站的原始文件，一个master分支用来存放生成的静态网页。</li>
+</ul>
+<p>以上这些都是学习 <a href="http://crazymilk.github.io/" target="_blank" rel="external">CrazyMilk</a> 大神的,我对大神的崇拜之情如滔滔江水，绵绵不绝！</p>
+<h2 id="hexo_u535A_u5BA2_u66F4_u6362_u4E3B_u9898"><a href="#hexo_u535A_u5BA2_u66F4_u6362_u4E3B_u9898" class="headerlink" title="hexo博客更换主题"></a>hexo博客更换主题</h2><p>cd到自己本地仓库的benbenlang.github.io文件夹</p>
+<blockquote>
+<p>git clone <a href="https://github.com/wuchong/jacman.git" target="_blank" rel="external">https://github.com/wuchong/jacman.git</a> themes/jacman  #把主题下载到本地的themes文件夹</p>
+</blockquote>
+<p>修改benbenlang.github.io文件夹里_config.yml的theme属性，将其设置为jacman</p>
+<blockquote>
+<p>git push origin master  #把主题提交到远端仓库<br>hexo s #预览主题<br>hexo g -d #发布</p>
+</blockquote>
+<h2 id="hexo_u535A_u5BA2_u7ED1_u5B9A_u4E2A_u4EBA_u57DF_u540D"><a href="#hexo_u535A_u5BA2_u7ED1_u5B9A_u4E2A_u4EBA_u57DF_u540D" class="headerlink" title="hexo博客绑定个人域名"></a>hexo博客绑定个人域名</h2><p>这个我还没搞，好像不算太难。</p>
+<p><strong>MAC下加环境变量 .bash_profile的方法</strong></p>
+<blockquote>
+<p>cd ~ #进入文件夹<br>touch .bash_profile #回车<br>open -e .bash_profile<br>export PATH=${PATH}:/usr/local/mysql/bin</p>
+</blockquote>
+<h3 id="u5B89_u88C5_Node-js"><a href="#u5B89_u88C5_Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h3><blockquote>
+<p>curl <a href="https://raw.github.com/creationix/nvm/master/install.sh" target="_blank" rel="external">https://raw.github.com/creationix/nvm/master/install.sh</a> | sh<br>安装完成后，重启终端并执行下列命令即可安装 Node.js<br>nvm install 4</p>
+</blockquote>
+<p>每次改完东西都要输</p>
+<blockquote>
+<p>npm install hexo-deployer-git –save<br>git pull origin master<br>hexo g #生成静态页<br>hexo s #本地预览测试<br>hexo g -d #发布</p>
+<p>{ [Error: Cannot find module ‘./build/Release/DTraceProviderBindings’] code: ‘MODULE_NOT_FOUND’ }<br>{ [Error: Cannot find module ‘./build/default/DTraceProviderBindings’] code: ‘MODULE_NOT_FOUND’ }<br>{ [Error: Cannot find module ‘./build/Debug/DTraceProviderBindings’] code: ‘MODULE_NOT_FOUND’ }</p>
+</blockquote>
+<p>解决方案：</p>
+<p>使用命令npm install hexo –no-optional</p>
+</div><div class="tags"><a href="/tags/hexo安装步骤-hexo模板安装-hexo插件安装-hexo/">hexo安装步骤,hexo模板安装,hexo插件安装,hexo</a></div><div class="post-nav"><a href="/year/01/29/hello-world/" class="pre"><i class="icon-previous">Hello World</i></a></div><div id="disqus_thread"><script>var disqus_shortname = 'benbenlang';
+var disqus_identifier = 'year/01/27/hexo安装步骤及模板插件安装/';
+var disqus_title = 'hexo安装步骤及模板插件安装';
+var disqus_url = 'http://benbenlang.com/year/01/27/hexo安装步骤及模板插件安装/';
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//benbenlang.disqus.com/count.js" async></script></div></div></div></div><div class="pure-u-1-4"><div id="sidebar"><div class="widget"><form action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="search" name="word" maxlength="20" placeholder="Search" class="search-form-input"/><input type="hidden" name="si" value="http://benbenlang.com"/><input name="tn" type="hidden" value="bds"/><input name="cl" type="hidden" value="3"/><input name="ct" type="hidden" value="2097152"/><input name="s" type="hidden" value="on"/></form></div><div class="widget"><div class="widget-title">分類</div></div><div class="widget"><div class="widget-title">標籤</div><div class="tagcloud"><a href="/tags/hexo安装步骤-hexo模板安装-hexo插件安装-hexo/" style="font-size: 15px;">hexo安装步骤,hexo模板安装,hexo插件安装,hexo</a></div></div><div class="widget"><div class="widget-title">最新文章</div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/year/01/29/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/year/01/27/hexo安装步骤及模板插件安装/">hexo安装步骤及模板插件安装</a></li></ul></div><div class="widget"><div class="widget-title">最近評論</div><script type="text/javascript" src="//benbenlang.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title">友站連結</div><ul></ul><a href="http://mp.weixin.qq.com/s?__biz=MzA5MDgxOTA1Ng==&amp;mid=401313624&amp;idx=1&amp;sn=1c36f1f8b9597f609756e74582af55b9&amp;3rd=MzA3MDU4NTYzMw==&amp;scene=6#rd" title="免费看病" target="_blank">免费看病</a><ul></ul><a href="http://5sing.kugou.com/benben/default.html" title="笨笨郎的音乐基地" target="_blank">笨笨郎的音乐基地</a><ul></ul><a href="http://weibo.com/benbenlang725" title="笨笨郎的微博" target="_blank">笨笨郎的微博</a><ul></ul><a href="http://bawn.github.io/" title="Bawn" target="_blank">Bawn</a><ul></ul><a href="http://www.fxsou.com/" title="QQ空间歌曲免费下载器" target="_blank">QQ空间歌曲免费下载器</a></div></div></div></div><div id="footer">© <a href="/." rel="nofollow">笨笨郎在这里.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/jquery.min.js?v=0.0.0"></script><script type="text/javascript" src="/js/totop.js?v=0.0.0"></script><script type="text/javascript" src="/js/fancybox.pack.js?v=0.0.0"></script><script type="text/javascript" src="/js/jquery.fancybox.js?v=0.0.0"></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?44d47d47945e163dfbc8a4a2cb50c23a";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
