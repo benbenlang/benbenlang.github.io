@@ -68,12 +68,13 @@ Plugins:
 - hexo-generator-sitemap
 ## Themes: http://hexo.io/themes/
 theme: maupassant
-
-# hexo sitemap网站地图
+# Extensions
+ 
+# 自动生成sitemap
 sitemap:
-  path: sitemap.xml
-  baidusitemap:
-  path: baidusitemap.xml
+path: sitemap.xml
+baidusitemap:
+path: baidusitemap.xml
 
 feed:
   type: atom       #feed 类型 (atom/rss2)
