@@ -10,5 +10,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: http://www.benbenlang.com/sitemap.xml
-Sitemap: http://www.benbenlang.com/baidusitemap.xml
+Sitemap: http://benbenlang.github.io/sitemap.xml
+Sitemap: http://benbenlang.github.io/baidusitemap.xml
